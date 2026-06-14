@@ -19,6 +19,7 @@ FILES=(
   README.md
   boot-audit.md
   collect-boot-audit.sh
+  META-INF
 )
 
 pushd "${ROOT_DIR}" >/dev/null

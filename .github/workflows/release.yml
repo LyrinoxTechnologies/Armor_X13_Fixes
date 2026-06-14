@@ -25,7 +25,7 @@ jobs:
 
       - name: Package module
         run: |
-          chmod +x build.sh scripts/package.sh collect-boot-audit.sh customize.sh service.sh post-fs-data.sh verify-targets.sh
+          chmod +x build.sh scripts/package.sh collect-boot-audit.sh customize.sh service.sh post-fs-data.sh verify-targets.sh META-INF/com/google/android/update-binary
           ./build.sh
 
       - name: Write update manifest

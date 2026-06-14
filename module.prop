@@ -1,7 +1,7 @@
-id=LyrinoxOS-Debloat-ArmorX13
-name=LyrinoxOS-Debloat-ArmorX13
-version=0.1.1
-versionCode=2
+id=lyrinoxos_debloat_armorx13
+name=LyrinoxOS Debloat Armor X13
+version=0.1.3
+versionCode=4
 author=LyrinoxTechnologies
 description=Safe debloat and conservative tuning for the Ulefone Armor X13 on Android 15.
 updateJson=https://github.com/LyrinoxTechnologies/Armor_X13_Fixes/releases/latest/download/update.json

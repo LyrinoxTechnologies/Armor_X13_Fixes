@@ -8,6 +8,7 @@ chmod +x \
   "${ROOT_DIR}/service.sh" \
   "${ROOT_DIR}/post-fs-data.sh" \
   "${ROOT_DIR}/collect-boot-audit.sh" \
+  "${ROOT_DIR}/META-INF/com/google/android/update-binary" \
   "${ROOT_DIR}/scripts/package.sh"
 
 "${ROOT_DIR}/scripts/package.sh"
