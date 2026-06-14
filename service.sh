@@ -4,6 +4,14 @@ LOG_FILE="/data/adb/lyrinoxos-debloat.log"
 
 DISABLE_PKGS="
 com.pri.sysresmon
+com.dobest.onekeyclean
+com.debug.loggerui
+com.mediatek.mdmconfig
+com.mediatek.voiceunlock
+com.mediatek.ygps
+com.mediatek.lbs.em2.ui
+com.mediatek.duraspeed
+com.mediatek.engineermode
 com.gotron.uota
 com.dobest.dynamic
 com.dobest.securitycenter
@@ -107,5 +115,31 @@ apply_setting global transition_animation_scale 0.5
 apply_setting global animator_duration_scale 0.5
 reapply_activity_manager_constants
 apply_setting global cached_apps_freezer enabled
+
+PKG1="com.mediatek.camera"
+# Keep camera functionality
+appops set "$PKG1" CAMERA allow
+appops set "$PKG1" RECORD_AUDIO allow
+appops set "$PKG1" START_FOREGROUND allow
+
+# Block location/exfil-adjacent stuff
+appops set "$PKG1" COARSE_LOCATION deny
+appops set "$PKG1" FINE_LOCATION deny
+appops set "$PKG1" ACCESS_BACKGROUND_LOCATION deny
+appops set "$PKG1" ACCESS_MEDIA_LOCATION deny
+
+# Block background execution, but not foreground service
+appops set "$PKG1" RUN_IN_BACKGROUND ignore
+appops set "$PKG1" RUN_ANY_IN_BACKGROUND ignore
+
+# Firewall network egress
+UID1="$(pm list packages -U | grep "$PKG1" | sed -n 's/.*uid://p')"
+
+if [ -n "$UID1" ]; then
+  iptables -I OUTPUT -m owner --uid-owner "$UID1" -j REJECT
+  ip6tables -I OUTPUT -m owner --uid-owner "$UID1" -j REJECT
+fi
+
+pm disable-user --user 0 com.debug.loggerui
 
 log "service.sh finished"

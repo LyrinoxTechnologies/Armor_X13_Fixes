@@ -1,6 +1,5 @@
 #!/system/bin/sh
 
-SKIPUNZIP=1
 
 ui_print() {
   echo "$1"

@@ -6,3 +6,6 @@ persist.vendor.aee.log.status=0
 persist.vendor.aeev.log.status=0
 persist.vendor.log.tel_log_ctrl=0
 ro.logd.size=256K
+
+# Reduce excessive logcat memory
+persist.log.tag=I
