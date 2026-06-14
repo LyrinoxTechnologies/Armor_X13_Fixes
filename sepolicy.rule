@@ -1,0 +1,1 @@
+# Add SELinux rules only when a change cannot be expressed through Magisk or props.

@@ -1,0 +1,23 @@
+name: package
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Package module
+        run: |
+          chmod +x build.sh scripts/package.sh collect-boot-audit.sh customize.sh service.sh post-fs-data.sh
+          ./build.sh
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: armor_x13_fixes
+          path: dist/*.zip

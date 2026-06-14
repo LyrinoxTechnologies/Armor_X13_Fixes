@@ -1,0 +1,2 @@
+# One package name per line.
+# Populate this list with verified Ulefone bloat packages for the Armor X13 firmware build.

@@ -1,0 +1,8 @@
+# Conservative properties only.
+# Some entries are read at boot and may depend on ROM behavior or boot timing.
+
+persist.traced.enable=0
+persist.vendor.aee.log.status=0
+persist.vendor.aeev.log.status=0
+persist.vendor.log.tel_log_ctrl=0
+ro.logd.size=256K

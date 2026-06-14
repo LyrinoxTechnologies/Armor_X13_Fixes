@@ -1,0 +1,2 @@
+# One persistent service or package component per line.
+# Populate this list only after confirming the exact package/component names on-device.
